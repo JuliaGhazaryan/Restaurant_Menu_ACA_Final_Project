@@ -9,7 +9,7 @@ const HomeConteiner = () => {
       id="home"
     >
       <div className="py-2 flex-1 flex flex-col items-start md:items-center justify-center">
-        <div className="flex itms-center gap-2 justify-center  bg-orange-100 px-4 py-1 rounded-full">
+        <div className="flex itms-center gap-2 justify-center  bg-orange-100 px-4 py-1 rounded-full ">
           <p className="text-base text-orange-500 font-semibold">
             Bike Delivery
           </p>
@@ -49,21 +49,21 @@ const HomeConteiner = () => {
         />
         <div
           className="w-full h-full absolute  top-0 left-0 flex justify-center items-center
-         px-32 py-4 gap-4 flex-wrap shadow-lg "
+         lg:px-32 py-4 gap-4 flex-wrap drop-shadow-lg "
         >
           {heroData.map((n) => {
             return (
               <div
                 key={n.id}
-                className="w-150 min-w-[150px]  p-2 bg-cardOverlay backdrop-blur-md 
+                className="w-40   p-4  bg-cardOverlay backdrop-blur-md 
              flex flex-col  items-center justify-center rounded-md "
               >
                 <img
                   src={n.imageSrc}
-                  className="w-40 -mt-10 object-contain"
+                  className="lg:w-24 w-20 -mt-10 "
                   alt="image"
                 />
-                <p className="text-base font-semibold text-textColor">
+                <p className="text-base lg:text-xl font-semibold text-textColor">
                   {n.name}
                 </p>
                 <p className="text-sm text-lighttextGray font-semibold">
