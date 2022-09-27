@@ -22,11 +22,12 @@ const [isLoading,setIsLoading] = useState(false)
 const uploadImage =(e) =>{
   setIsLoading(true)
   const imageFile = e.target.files[0]
+ // console.log(imageFile)
   const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`)
   const uploadTask = uploadBytesResumable(storageRef, imageFile )
 
-  uploadTask.on('state_changed',(snapsshot)=>{
-    const uploadProgres = (snapsshot.bytesTransferred/snapsshot.totalBytes)*100
+  uploadTask.on('state_changed',(snapshot)=>{
+    const uploadProgres = (snapshot.bytesTransferred/snapshot.totalBytes)*100
   },(error)=>{
     console.log(error)
     setFields(true)
@@ -50,7 +51,7 @@ const uploadImage =(e) =>{
 
     })
   })
-//   console.log(imageFile)
+  // console.log(imageFile)
  }
 
 const deleteImage = ()=>{
