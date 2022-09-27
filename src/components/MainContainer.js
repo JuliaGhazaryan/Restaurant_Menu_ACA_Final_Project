@@ -21,21 +21,19 @@ const MainContainer = () => {
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-orange-300 hover:bg-orange-500 cursor-pointer  hover:shadow-lg flex items-center justify-center"
-             
             >
               <MdChevronLeft className="text-lg text-white" />
             </motion.div>
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-orange-300 hover:bg-orange-500 cursor-pointer transition-all duration-100 ease-in-out hover:shadow-lg flex items-center justify-center"
-             
             >
               <MdChevronRight className="text-lg text-white" />
             </motion.div>
           </div>
         </div>
 
-        <RowContainer flag={true}/>
+        <RowContainer flag={true} />
       </section>
     </div>
   );
