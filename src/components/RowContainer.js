@@ -3,15 +3,15 @@ import I6 from "../img/i6.png";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
 
-const RowContainer = ({ flag, data, scrollValue}) => {
+const RowContainer = ({ flag, data, scrollValue }) => {
   console.log(data);
   const rowContainer = useRef();
-  useEffect(()=>{
-    rowContainer.current.scrollLeft += scrollValue
-  },[scrollValue])
+  useEffect(() => {
+    rowContainer.current.scrollLeft += scrollValue;
+  }, [scrollValue]);
   return (
     <div
-     ref={rowContainer}
+      ref={rowContainer}
       className={`w-full flex items-center grap-3 my-12 bg-rowBg scroll-smooth ${
         flag
           ? "overflow-x-scroll scrollbar-none"
@@ -28,7 +28,7 @@ const RowContainer = ({ flag, data, scrollValue}) => {
             <div className="w-full flex items-center justify-between ">
               <motion.img
                 whileHover={{ scale: 1.2 }}
-                src={I6}
+                src={item.imageURL ? item.imageURL : I6}
                 alt=""
                 className="w-40 -mt-8"
               />
@@ -43,10 +43,13 @@ const RowContainer = ({ flag, data, scrollValue}) => {
               <p className="text-textColor font-semibold text-base md:text-lg">
                 {item?.title}
               </p>
-              <p className="mt-1 text-sm text-gray-500">{item?.calories} Calories</p>
+              <p className="mt-1 text-sm text-gray-500">
+                {item?.calories} Calories
+              </p>
               <div className="flex items-center gap-8">
                 <p className="text-lg text-headingColor font-semibold">
-                  <span className="text-sm text-red-500 ">$</span>{item?.price}
+                  <span className="text-sm text-red-500 ">$</span>
+                  {item?.price}
                 </p>
               </div>
             </div>

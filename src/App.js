@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { CreateContainer } from "./components/CreateContainer";
 import { AnimatePresence } from "framer-motion";
@@ -6,11 +6,12 @@ import { AnimatePresence } from "framer-motion";
 import { Header } from "./components/Header";
 import MainContainer from "./components/MainContainer";
 import { useStateValue } from "./context/StateProvider";
-import { getAllFoodItems } from "./utils/firebaseFunctions"
-import {actionType} from "./context/reducer"
+import { getAllFoodItems } from "./utils/firebaseFunctions";
+import { actionType } from "./context/reducer";
 
 function App() {
-  const[{}, dispatch] = useStateValue()
+  const [{ foodItems }, dispatch] = useStateValue();
+
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
       console.log(data)
