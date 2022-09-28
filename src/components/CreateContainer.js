@@ -87,6 +87,7 @@ const saveDetalies = ()=>{
       const data = {
         id: `${Date.now()}`,
         title: title,
+        imageURL: imgAsset,
         category: category,
         calories: calories,
         qty:1,
