@@ -6,7 +6,6 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
-<<<<<<< HEAD
   const rowContainer = useRef();
 
   const [items, setItems] = useState([]);
@@ -85,7 +84,6 @@ const RowContainer = ({ flag, data, scrollValue }) => {
               <p className="text-xl text-headingColor font-semibold my-2">
                 Items Not Available
               </p>
-=======
   console.log(data);
   const rowContainer = useRef();
   useEffect(() => {
@@ -134,6 +132,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                   {item?.price}
                 </p>
               </div>
+=======
             </div>
         )}
       </div>

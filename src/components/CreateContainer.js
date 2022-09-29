@@ -34,7 +34,7 @@ export const CreateContainer = () => {
   const uploadImage = (e) => {
     setIsLoading(true);
     const imageFile = e.target.files[0];
-    console.log(imageFile);
+    // console.log(imageFile)
     const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
@@ -47,7 +47,7 @@ export const CreateContainer = () => {
       (error) => {
         console.log(error);
         setFields(true);
-        setMsg("Error uploading");
+        setMsg("el chgidem angleren inch grem");
         setAlertStatus("danger");
         setTimeout(() => {
           setFields(false);
@@ -59,7 +59,7 @@ export const CreateContainer = () => {
           setImgAsset(downloadURL);
           setIsLoading(false);
           setFields(true);
-          setMsg("Img uploaded success");
+          setMsg("Img uploaded");
           setAlertStatus("success");
           setTimeout(() => {
             setFields(false);
@@ -122,7 +122,7 @@ export const CreateContainer = () => {
     } catch (error) {
       console.log(error);
       setFields(true);
-      setMsg("el chgidem angleren inch grem");
+      setMsg("Uploading error");
       setAlertStatus("danger");
       setTimeout(() => {
         setFields(false);
