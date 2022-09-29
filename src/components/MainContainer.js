@@ -3,21 +3,13 @@ import HomeConteiner from "./HomeConteiner";
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
-<<<<<<< HEAD
-import { useStateValue } from "../context/StateProvider"
+import { useStateValue } from "../context/StateProvider";
 import MenuContainer from "./MenuContainer";
 import CartContainer from "./CartContainer";
-=======
-import { useStateValue } from "../context/StateProvider";
->>>>>>> 1e02d1f63202b2315753056c92c3342225024fb3
 
 const MainContainer = () => {
   const [{ foodItems }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
-<<<<<<< HEAD
-
-=======
->>>>>>> 1e02d1f63202b2315753056c92c3342225024fb3
 
   useEffect(() => {}, [scrollValue]);
 
@@ -59,7 +51,7 @@ const MainContainer = () => {
       </section>
       <section className="w-full my-6">
         <MenuContainer />
-        <CartContainer/>
+        <CartContainer />
       </section>
     </div>
   );
