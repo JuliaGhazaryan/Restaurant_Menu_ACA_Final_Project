@@ -34,85 +34,10 @@ export const CreateContainer = () => {
   const uploadImage = (e) => {
     setIsLoading(true);
     const imageFile = e.target.files[0];
-    console.log(imageFile);
+    // console.log(imageFile)
     const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
-<<<<<<< HEAD
-const uploadImage =(e) =>{
-  setIsLoading(true)
-  const imageFile = e.target.files[0]
- // console.log(imageFile)
-  const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`)
-  const uploadTask = uploadBytesResumable(storageRef, imageFile )
-
-  uploadTask.on('state_changed',(snapshot)=>{
-    const uploadProgres = (snapshot.bytesTransferred/snapshot.totalBytes)*100
-  },(error)=>{
-    console.log(error)
-    setFields(true)
-    setMsg('el chgidem angleren inch grem')
-    setAlertStatus('danger')
-    setTimeout(()=>{
-      setFields(false)
-      setIsLoading(false)
-    },4000)
-  },()=>{
-    getDownloadURL(uploadTask.snapshot.ref).then(downloadURL=>{
-      setImgAsset(downloadURL)
-      setIsLoading(false)
-      setFields(true)
-      setMsg('Img uploaded')
-      setAlertStatus('success')
-      setTimeout(()=>{
-        setFields(false)
-        // setIsLoading(false)
-      },4000)
-
-    })
-  })
-  // console.log(imageFile)
- }
-
-const deleteImage = ()=>{
-  setIsLoading(true)
-  const deleteRef = ref(storage,imgAsset)
-  deleteObject(deleteRef).then(()=>{
-    setImgAsset(null)
-    setIsLoading(false)
-    setFields(true)
-    setMsg('Img uploaded')
-    setAlertStatus('success')
-    setTimeout(()=>{
-      setFields(false)
-      // setIsLoading(false)
-    },4000)
-  })
-}
-
-const saveDetalies = ()=>{
-  setIsLoading(true)
-  try {
-    if((!title || !calories || !imgAsset||!price||!category)){
-    setFields(true)
-    setMsg('el chgidem angleren inch grem')
-    setAlertStatus('danger')
-    setTimeout(()=>{
-      setFields(false)
-      setIsLoading(false)
-    },4000)
-
-
-    }else{
-      const data = {
-        id: `${Date.now()}`,
-        title: title,
-        imageURL: imgAsset,
-        category: category,
-        calories: calories,
-        qty:1,
-        price:price
-=======
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -122,7 +47,7 @@ const saveDetalies = ()=>{
       (error) => {
         console.log(error);
         setFields(true);
-        setMsg("Error uploading");
+        setMsg("el chgidem angleren inch grem");
         setAlertStatus("danger");
         setTimeout(() => {
           setFields(false);
@@ -134,14 +59,13 @@ const saveDetalies = ()=>{
           setImgAsset(downloadURL);
           setIsLoading(false);
           setFields(true);
-          setMsg("Img uploaded success");
+          setMsg("Img uploaded");
           setAlertStatus("success");
           setTimeout(() => {
             setFields(false);
             // setIsLoading(false)
           }, 4000);
         });
->>>>>>> 1e02d1f63202b2315753056c92c3342225024fb3
       }
     );
     // console.log(imageFile)
@@ -198,7 +122,7 @@ const saveDetalies = ()=>{
     } catch (error) {
       console.log(error);
       setFields(true);
-      setMsg("el chgidem angleren inch grem");
+      setMsg("Uploading error");
       setAlertStatus("danger");
       setTimeout(() => {
         setFields(false);
