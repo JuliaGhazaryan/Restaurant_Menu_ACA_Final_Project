@@ -60,7 +60,7 @@ const deleteImage = ()=>{
     setImgAsset(null)
     setIsLoading(false)
     setFields(true)
-    setMsg('Img uploaded')
+    setMsg('Img uploadednpm')
     setAlertStatus('success')
     setTimeout(()=>{
       setFields(false)
