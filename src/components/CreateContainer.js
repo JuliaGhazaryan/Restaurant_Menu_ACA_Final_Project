@@ -122,7 +122,7 @@ export const CreateContainer = () => {
     } catch (error) {
       console.log(error);
       setFields(true);
-      setMsg("el chgidem angleren inch grem");
+      setMsg("Uploading error");
       setAlertStatus("danger");
       setTimeout(() => {
         setFields(false);
