@@ -134,7 +134,6 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                   {item?.price}
                 </p>
               </div>
->>>>>>> 1e02d1f63202b2315753056c92c3342225024fb3
             </div>
         )}
       </div>
