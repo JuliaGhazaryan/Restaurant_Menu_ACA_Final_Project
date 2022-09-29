@@ -8,6 +8,7 @@ import MainContainer from "./components/MainContainer";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
+import MenuContainer from "./components/MenuContainer";
 
 function App() {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -34,6 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<MainContainer />} />
             <Route path="/createItem" element={<CreateContainer />} />
+            <Route path="/Menu" element={<MenuContainer />} />
           </Routes>
         </main>
       </div>

@@ -46,7 +46,7 @@ const MainContainer = () => {
         <RowContainer
           scrollValue={scrollValue}
           flag={true}
-          data={foodItems?.filter((n) => n.category === "fruits")}
+          data={foodItems?.filter((n) => n.category === "drinks")}
         />
       </section>
       <section className="w-full my-6">
