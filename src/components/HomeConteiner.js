@@ -2,6 +2,7 @@ import React from "react";
 import Delivery from "../img/delivery.png";
 import HeroBg from "../img/heroBg.png";
 import { heroData } from "../utils/data";
+import { motion } from "framer-motion";
 const HomeConteiner = () => {
   return (
     <section
@@ -29,7 +30,7 @@ const HomeConteiner = () => {
         </p>
         <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
           You can see our resturant menu here.We want to see your smile and
-          happiness.You can order all delicous dishes,thet you whant here.
+          happiness.You can order all delicous dishes,that you whant here.
         </p>
         <button
           type="button"
@@ -58,10 +59,11 @@ const HomeConteiner = () => {
                 className="w-40   p-4  bg-cardOverlay backdrop-blur-md 
              flex flex-col  items-center justify-center rounded-md "
               >
-                <img
+                <motion.img
+                  whileHover={{ scale: 1.2 }}
                   src={n.imageSrc}
                   className="lg:w-24 w-20 -mt-10 "
-                  alt="image"
+                  alt="img"
                 />
                 <p className="text-base lg:text-xl font-semibold text-textColor">
                   {n.name}
