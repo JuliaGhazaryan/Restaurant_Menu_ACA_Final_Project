@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { motion } from "framer-motion";
 import {
   MdFastfood,
@@ -35,7 +36,7 @@ export const CreateContainer = () => {
     setIsLoading(true);
     const imageFile = e.target.files[0];
     // console.log(imageFile)
-    const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`);
+    const storageRef = ref(storage, `Images/${uuidv4()}-${imageFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
     uploadTask.on(
@@ -100,7 +101,7 @@ export const CreateContainer = () => {
         }, 4000);
       } else {
         const data = {
-          id: `${Date.now()}`,
+          id: `${uuidv4()}`,
           title: title,
           imageURL: imgAsset,
           category: category,

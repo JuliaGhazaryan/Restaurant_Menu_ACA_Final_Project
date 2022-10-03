@@ -3,25 +3,14 @@ import Delivery from "../img/delivery.png";
 import HeroBg from "../img/heroBg.png";
 import { heroData } from "../utils/data";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const HomeConteiner = () => {
   return (
     <section
       className="grid grid-cols-1 md:grid-cols-2 grap-2 w-full"
       id="home"
     >
-      <div className="py-2 flex-1 flex flex-col items-start md:items-center justify-center">
-        <div className="flex itms-center gap-2 justify-center  bg-orange-100 px-4 py-1 rounded-full ">
-          <p className="text-base text-orange-500 font-semibold">
-            Bike Delivery
-          </p>
-          <div className="w-8 h-8 bg-white rounded-full overflow-hidden drop-shadow-xl">
-            <img
-              src={Delivery}
-              className="w-full h-full object-contain"
-              alt="delivery"
-            />
-          </div>
-        </div>
+      <div className="py-6 flex-1 flex flex-col items-start md:items-center justify-center">
         <p className=" text-[2.5rem] font-bold tracking-wide text-headingColor lg:text-[4.5rem]">
           The Fastest Delivery in{" "}
           <span className="text-[3rem] lg:text-[5rem] text-orange-600">
@@ -38,7 +27,7 @@ const HomeConteiner = () => {
                px-4 py-2 rounded-lg
                hover:shadow-lg transition-all eas-in-out duration-100"
         >
-          Order Now
+          <Link to={"/Menu"}>Order Now</Link>
         </button>
       </div>
 
