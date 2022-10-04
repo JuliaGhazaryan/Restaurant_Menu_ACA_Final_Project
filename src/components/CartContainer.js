@@ -1,26 +1,18 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import { MdOutlineKeyboardBackspace } from "react-icons/md";
-import { motion } from "framer-motion";
-import { RiRefreshFill } from "react-icons/ri";
-import { BiMinus, BiPlus } from "react-icons/bi";
-=======
 import React, { useEffect, useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
 
 import { motion } from "framer-motion";
->>>>>>> a06bd5083db8dd6d4e9bb76358033419d59c6d4a
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import EmptyCart from "../img/emptyCart.svg";
 import CartItem from "./CartItem";
-import { useEffect } from "react";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
+  console.log(cartItems, "cartItems");
 
   const showCart = () => {
     dispatch({
@@ -31,14 +23,14 @@ const CartContainer = () => {
 
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
+      console.log(item.qty, "qty");
+      console.log(item.price, "price");
       return accumulator + item.qty * item.price;
     }, 0);
     setTot(totalPrice);
-<<<<<<< HEAD
-=======
-    console.log(tot);
->>>>>>> a06bd5083db8dd6d4e9bb76358033419d59c6d4a
-  }, [tot, flag]);
+
+    console.log(tot, "totlPr");
+  }, [cartItems, tot, flag]);
 
   const clearCart = () => {
     dispatch({

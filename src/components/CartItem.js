@@ -6,16 +6,9 @@ import { actionType } from "../context/reducer";
 import { fetchCart } from "../utils/fetchLocalStorageData";
 let items = [];
 
-<<<<<<< HEAD
-const CartItem = ({ item }) => {
-  const [qty, setQty] = useState(1);
-  const [items, setItems] = useState([]);
-  const [{ cartItems }, dispatch] = useStateValue();
-=======
 const CartItem = ({ item, setFlag, flag }) => {
   const [{ cartItems }, dispatch] = useStateValue();
   const [qty, setQty] = useState(item.qty);
->>>>>>> a06bd5083db8dd6d4e9bb76358033419d59c6d4a
 
   const cartDispatch = () => {
     localStorage.setItem("cartItems", JSON.stringify(items));
