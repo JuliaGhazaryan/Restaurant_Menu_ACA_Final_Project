@@ -12,6 +12,7 @@ const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
+  console.log(cartItems, "cartItems");
 
   const showCart = () => {
     dispatch({
@@ -22,11 +23,14 @@ const CartContainer = () => {
 
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
+      console.log(item.qty, "qty");
+      console.log(item.price, "price");
       return accumulator + item.qty * item.price;
     }, 0);
     setTot(totalPrice);
-    console.log(tot);
-  }, [tot, flag]);
+
+    console.log(tot, "totlPr");
+  }, [cartItems, tot, flag]);
 
   const clearCart = () => {
     dispatch({
