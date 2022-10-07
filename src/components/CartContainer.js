@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeCartShow, setCartItems } from "../redux/sliceCart";
 
 const CartContainer = () => {
-  // const [{ cartShow, cartItems }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
   // console.log(cartItems, "cartItems");
@@ -25,8 +24,8 @@ const CartContainer = () => {
 
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
-      console.log(item.qty, "qty");
-      console.log(item.price, "price");
+      // console.log(item.qty, "qty");
+      // console.log(item.price, "price");
       return accumulator + item.qty * item.price;
     }, 0);
     setTot(totalPrice);
