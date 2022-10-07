@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { motion } from "framer-motion";
 import {
@@ -18,8 +18,7 @@ import {
 } from "firebase/storage";
 import { storage } from "../firebase.config";
 import { getAllFoodItems, saveItem } from "../utils/firebaseFunctions";
-import { actionType } from "../context/reducer";
-import { useStateValue } from "../context/StateProvider";
+
 import { useDispatch, useSelector } from "react-redux";
 import { setFoodItems } from "../redux/foodSlice";
 export const CreateContainer = () => {
@@ -32,9 +31,9 @@ export const CreateContainer = () => {
   const [alertStatus, setAlertStatus] = useState("danger");
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
- // const [{ foodItems }, dispatch] = useStateValue();
- const dispatch = useDispatch();
- const foodItems = useSelector(s => s.Food.foodItems)
+  // const [{ foodItems }, dispatch] = useStateValue();
+  const dispatch = useDispatch();
+  const foodItems = useSelector((s) => s.Food.foodItems);
 
   const uploadImage = (e) => {
     setIsLoading(true);

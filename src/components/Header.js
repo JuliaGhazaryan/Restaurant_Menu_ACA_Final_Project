@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import Logo from "../img/logo.jpg";
+//import Logo from "../img/logo.jpg";
+import Logo from "../img/logo2.jpg";
+
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import Avatar from "../img/ava.jpg";
 import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 import { Link } from "react-router-dom";
-import { actionType } from "../context/reducer";
+
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/sliceUser";
 import { changeCartShow } from "../redux/sliceCart";
@@ -16,11 +18,8 @@ export const Header = () => {
   const provider = new GoogleAuthProvider();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.User.user);
-  const cartShow = useSelector(s => s.Cart.cartShow);
-  const cartItems = useSelector(s => s.Cart.cartItems)
-
-
-  
+  const cartShow = useSelector((s) => s.Cart.cartShow);
+  const cartItems = useSelector((s) => s.Cart.cartItems);
 
   const [isMenu, setIsMenu] = useState(false);
 
@@ -31,7 +30,6 @@ export const Header = () => {
       } = await signInWithPopup(firebaseAuth, provider);
 
       dispatch(setUser(providerData[0]));
-
 
       localStorage.setItem("user", JSON.stringify(providerData[0]));
       //console.log(response)
@@ -56,8 +54,7 @@ export const Header = () => {
       {/* desktop & tablet  */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to={"/"} className="flex items-center gap-2">
-          <img src={Logo} className="w-13 h-12 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold"> Food World</p>
+          <img src={Logo} className="w-15 h-14 object-cover" alt="logo" />
         </Link>
 
         <div className="flex items-center gap-8">
@@ -138,7 +135,6 @@ export const Header = () => {
       <div className="flex items-center justify-between md:hidden w-full h-full">
         <Link to={"/"} className="flex items-center gap-2">
           <img src={Logo} className="w-13 h-12 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold"> Food World</p>
         </Link>
 
         <div
