@@ -6,14 +6,21 @@ import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 import { Link } from "react-router-dom";
-import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../redux/sliceUser";
+import { changeCartShow } from "../redux/sliceCart";
 
 export const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.User.user);
+  const cartShow = useSelector(s => s.Cart.cartShow);
+  const cartItems = useSelector(s => s.Cart.cartItems)
 
-  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
+
+  
 
   const [isMenu, setIsMenu] = useState(false);
 
@@ -22,10 +29,10 @@ export const Header = () => {
       const {
         user: { refreshToken, providerData },
       } = await signInWithPopup(firebaseAuth, provider);
-      dispatch({
-        type: actionType.SET_USER,
-        user: providerData[0],
-      });
+
+      dispatch(setUser(providerData[0]));
+
+
       localStorage.setItem("user", JSON.stringify(providerData[0]));
       //console.log(response)
     } else {
@@ -37,19 +44,12 @@ export const Header = () => {
     setIsMenu(false);
     localStorage.clear();
 
-    dispatch({
-      type: actionType.SET_USER,
-      user: null,
-    });
+    dispatch(setUser(null));
   };
 
   const showCart = () => {
-    dispatch({
-      type: actionType.SET_CART_SHOW,
-      cartShow: !cartShow,
-    });
-  }
-
+    dispatch(changeCartShow());
+  };
 
   return (
     <header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary">
@@ -81,14 +81,19 @@ export const Header = () => {
             </li>
           </motion.ul>
 
-          <div className="relative flex items-center justify-center" onClick={showCart}>
+          <div
+            className="relative flex items-center justify-center"
+            onClick={showCart}
+          >
             <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
 
-          {cartItems && cartItems.length > 0 && (
-          <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
-            <p className="text-xs text-white font-semibold">{cartItems.length}</p>
-          </div>
-          )}
+            {cartItems && cartItems.length > 0 && (
+              <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+                <p className="text-xs text-white font-semibold">
+                  {cartItems.length}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* <button className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Login</button> */}
@@ -136,13 +141,18 @@ export const Header = () => {
           <p className="text-headingColor text-xl font-bold"> Food World</p>
         </Link>
 
-        <div className="relative flex items-center justify-center" onClick={showCart}>
+        <div
+          className="relative flex items-center justify-center"
+          onClick={showCart}
+        >
           <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
 
           {cartItems && cartItems.length > 0 && (
-          <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
-            <p className="text-xs text-white font-semibold">{cartItems.length}</p>
-          </div>
+            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+              <p className="text-xs text-white font-semibold">
+                {cartItems.length}
+              </p>
+            </div>
           )}
         </div>
 

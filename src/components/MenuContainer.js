@@ -5,10 +5,14 @@ import { motion } from "framer-motion";
 import RowContainer from "./RowContainer";
 import { useStateValue } from "../context/StateProvider";
 import CartContainer from "./CartContainer";
+import { useDispatch, useSelector } from "react-redux";
 
 const MenuContainer = () => {
   const [filter, setFilter] = useState("chicken");
-  const [{ foodItems, cartShow }, dispatch] = useStateValue();
+ // const [{ cartShow }, dispatch] = useStateValue();
+ //const dispatch = useDispatch();
+ const foodItems = useSelector(state => state.Food.foodItems);
+ const cartShow = useSelector(s => s.Cart.cartShow)
 
   useEffect(() => {}, [filter]);
 

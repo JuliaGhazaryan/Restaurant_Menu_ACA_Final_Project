@@ -9,17 +9,18 @@ import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
 import MenuContainer from "./components/MenuContainer";
+import {useDispatch, useSelector} from "react-redux";
+import {setFoodItems} from "../src/redux/foodSlice"
 
 function App() {
-  const [{ foodItems }, dispatch] = useStateValue();
+ // const [{ foodItems }, dispatch] = useStateValue();
+ const dispatch = useDispatch();
+ const foodItems = useSelector(state => state.Food.foodItems)
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
       console.log(data)
-      dispatch({
-        type: actionType.SET_FOOD_ITEMS,
-        foodItems: data,
-      });
+      dispatch(setFoodItems(data));
     });
   };
 
