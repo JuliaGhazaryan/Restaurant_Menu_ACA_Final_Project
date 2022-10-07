@@ -5,21 +5,21 @@ import { AnimatePresence } from "framer-motion";
 
 import { Header } from "./components/Header";
 import MainContainer from "./components/MainContainer";
-import { useStateValue } from "./context/StateProvider";
+
 import { getAllFoodItems } from "./utils/firebaseFunctions";
-import { actionType } from "./context/reducer";
+
 import MenuContainer from "./components/MenuContainer";
-import {useDispatch, useSelector} from "react-redux";
-import {setFoodItems} from "../src/redux/foodSlice"
+import { useDispatch, useSelector } from "react-redux";
+import { setFoodItems } from "../src/redux/foodSlice";
 
 function App() {
- // const [{ foodItems }, dispatch] = useStateValue();
- const dispatch = useDispatch();
- const foodItems = useSelector(state => state.Food.foodItems)
+  // const [{ foodItems }, dispatch] = useStateValue();
+  const dispatch = useDispatch();
+  const foodItems = useSelector((state) => state.Food.foodItems);
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
-      console.log(data)
+      console.log(data);
       dispatch(setFoodItems(data));
     });
   };

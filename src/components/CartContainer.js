@@ -3,22 +3,21 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
 
 import { motion } from "framer-motion";
-import { useStateValue } from "../context/StateProvider";
-import { actionType } from "../context/reducer";
+
 import EmptyCart from "../img/emptyCart.svg";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { changeCartShow, setCartItems } from "../redux/sliceCart";
 
 const CartContainer = () => {
- // const [{ cartShow, cartItems }, dispatch] = useStateValue();
+  // const [{ cartShow, cartItems }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
- // console.log(cartItems, "cartItems");
-  const user = useSelector(state => state.User.user)
- const dispatch = useDispatch();
- const cartShow =  useSelector(s => s.Cart.cartShow);
- const cartItems = useSelector(s => s.Cart.cartItems)
+  // console.log(cartItems, "cartItems");
+  const user = useSelector((state) => state.User.user);
+  const dispatch = useDispatch();
+  const cartShow = useSelector((s) => s.Cart.cartShow);
+  const cartItems = useSelector((s) => s.Cart.cartItems);
 
   const showCart = () => {
     dispatch(changeCartShow());

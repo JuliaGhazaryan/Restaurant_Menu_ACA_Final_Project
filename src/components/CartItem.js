@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { motion } from "framer-motion";
-import { useStateValue } from "../context/StateProvider";
-import { actionType } from "../context/reducer";
-import { fetchCart } from "../utils/fetchLocalStorageData";
-import {useDispatch, useSelector} from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 import { setCartItems } from "../redux/sliceCart";
-
-
 
 let items = [];
 
 const CartItem = ({ item, setFlag, flag }) => {
- // const [{ cartItems }, dispatch] = useStateValue();
+  // const [{ cartItems }, dispatch] = useStateValue();
   const [qty, setQty] = useState(item.qty);
   const dispatch = useDispatch();
-  const cartItems = useSelector(s => s.Cart.cartItems)
+  const cartItems = useSelector((s) => s.Cart.cartItems);
 
   const cartDispatch = () => {
     localStorage.setItem("cartItems", JSON.stringify(items));

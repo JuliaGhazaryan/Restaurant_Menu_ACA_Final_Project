@@ -3,16 +3,16 @@ import { IoFastFood } from "react-icons/io5";
 import { categories } from "../utils/data";
 import { motion } from "framer-motion";
 import RowContainer from "./RowContainer";
-import { useStateValue } from "../context/StateProvider";
+
 import CartContainer from "./CartContainer";
 import { useDispatch, useSelector } from "react-redux";
 
 const MenuContainer = () => {
   const [filter, setFilter] = useState("chicken");
- // const [{ cartShow }, dispatch] = useStateValue();
- //const dispatch = useDispatch();
- const foodItems = useSelector(state => state.Food.foodItems);
- const cartShow = useSelector(s => s.Cart.cartShow)
+  // const [{ cartShow }, dispatch] = useStateValue();
+  //const dispatch = useDispatch();
+  const foodItems = useSelector((state) => state.Food.foodItems);
+  const cartShow = useSelector((s) => s.Cart.cartShow);
 
   useEffect(() => {}, [filter]);
 
@@ -67,7 +67,7 @@ const MenuContainer = () => {
         <div className="w-full">
           <RowContainer
             flag={false}
-            data={foodItems.filter((n) => n.category === filter)}
+            data={foodItems?.filter((n) => n.category === filter)}
           />
         </div>
         {cartShow && <CartContainer />}

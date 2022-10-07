@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 import { Link } from "react-router-dom";
-import { actionType } from "../context/reducer";
+
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/sliceUser";
 import { changeCartShow } from "../redux/sliceCart";
@@ -18,11 +18,8 @@ export const Header = () => {
   const provider = new GoogleAuthProvider();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.User.user);
-  const cartShow = useSelector(s => s.Cart.cartShow);
-  const cartItems = useSelector(s => s.Cart.cartItems)
-
-
-  
+  const cartShow = useSelector((s) => s.Cart.cartShow);
+  const cartItems = useSelector((s) => s.Cart.cartItems);
 
   const [isMenu, setIsMenu] = useState(false);
 
@@ -33,7 +30,6 @@ export const Header = () => {
       } = await signInWithPopup(firebaseAuth, provider);
 
       dispatch(setUser(providerData[0]));
-
 
       localStorage.setItem("user", JSON.stringify(providerData[0]));
       //console.log(response)
