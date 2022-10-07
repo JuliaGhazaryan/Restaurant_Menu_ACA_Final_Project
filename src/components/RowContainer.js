@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import NotFound from "../img/NotFound.svg";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { setCartItems } from "../redux/sliceCart";
 
 const RowContainer = ({ flag, data, scrollValue, foodItems }) => {
   const rowContainer = useRef();
@@ -11,15 +13,12 @@ const RowContainer = ({ flag, data, scrollValue, foodItems }) => {
   console.log(foodItems);
   const [items, setItems] = useState([]);
 
-  const [{ cartItems }, dispatch] = useStateValue();
+  // const [{ cartItems }, dispatch] = useStateValue();
+  const dispatch = useDispatch();
+  const cartItems = useSelector((s) => s.Cart.cartItems);
 
   const addtocart = () => {
-    dispatch({
-      type: actionType.SET_CARTITEMS,
-      cartItems: items,
-    });
-    console.log(items, "items");
-    console.log(cartItems, "cartItemms");
+    dispatch(setCartItems(items));
     localStorage.setItem("cartItems", JSON.stringify(items));
   };
 
