@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Logo from "../img/logo.jpg";
+//import Logo from "../img/logo.jpg";
+import Logo from "../img/logo2.jpg";
+
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import Avatar from "../img/ava.jpg";
 import { motion } from "framer-motion";
@@ -48,16 +50,14 @@ export const Header = () => {
       type: actionType.SET_CART_SHOW,
       cartShow: !cartShow,
     });
-  }
-
+  };
 
   return (
     <header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary">
       {/* desktop & tablet  */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to={"/"} className="flex items-center gap-2">
-          <img src={Logo} className="w-13 h-12 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold"> Food World</p>
+          <img src={Logo} className="w-15 h-14 object-cover" alt="logo" />
         </Link>
 
         <div className="flex items-center gap-8">
@@ -81,14 +81,19 @@ export const Header = () => {
             </li>
           </motion.ul>
 
-          <div className="relative flex items-center justify-center" onClick={showCart}>
+          <div
+            className="relative flex items-center justify-center"
+            onClick={showCart}
+          >
             <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
 
-          {cartItems && cartItems.length > 0 && (
-          <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
-            <p className="text-xs text-white font-semibold">{cartItems.length}</p>
-          </div>
-          )}
+            {cartItems && cartItems.length > 0 && (
+              <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+                <p className="text-xs text-white font-semibold">
+                  {cartItems.length}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* <button className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Login</button> */}
@@ -133,16 +138,20 @@ export const Header = () => {
       <div className="flex items-center justify-between md:hidden w-full h-full">
         <Link to={"/"} className="flex items-center gap-2">
           <img src={Logo} className="w-13 h-12 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold"> Food World</p>
         </Link>
 
-        <div className="relative flex items-center justify-center" onClick={showCart}>
+        <div
+          className="relative flex items-center justify-center"
+          onClick={showCart}
+        >
           <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
 
           {cartItems && cartItems.length > 0 && (
-          <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
-            <p className="text-xs text-white font-semibold">{cartItems.length}</p>
-          </div>
+            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+              <p className="text-xs text-white font-semibold">
+                {cartItems.length}
+              </p>
+            </div>
           )}
         </div>
 

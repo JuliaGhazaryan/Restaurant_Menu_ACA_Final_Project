@@ -1,6 +1,7 @@
 import React from "react";
 import Delivery from "../img/delivery.png";
-import HeroBg from "../img/heroBg.png";
+// import HeroBg from "../img/heroBg.png";
+import Girl from "../img/girl.jpg";
 import { heroData } from "../utils/data";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ const HomeConteiner = () => {
       <div className="py-6 flex-1 flex flex-col items-start md:items-center justify-center">
         <p className=" text-[2.5rem] font-bold tracking-wide text-headingColor lg:text-[4.5rem]">
           The Fastest Delivery in{" "}
-          <span className="text-[3rem] lg:text-[5rem] text-orange-600">
+          <span className="text-[3rem] lg:text-[5rem] text-green-600">
             Your City
           </span>
         </p>
@@ -23,35 +24,43 @@ const HomeConteiner = () => {
         </p>
         <button
           type="button"
-          className="bg-orange-400 w-full md:w-auto
+          className="mt-4 ring-2 ring-black w-full md:w-auto
                px-4 py-2 rounded-lg
-               hover:shadow-lg transition-all eas-in-out duration-100"
+               hover:bg-green-500 text-16px   text-green-500 hover:text-black"
         >
           <Link to={"/Menu"}>Order Now</Link>
         </button>
       </div>
 
-      <div className="py-2  flex-1 flex items-center relative">
+      <div className="py-2  flex-1 flex  flex-nowrap items-center relative">
+        {/* <div className="absolute mt-62">
+          <p className=" text-[2.5rem] font-bold tracking-wide text-green-500 ">
+            Fantastic Delicious fot you
+          </p>
+        </div> */}
+
         <img
-          src={HeroBg}
-          className="h-420 w-full lg:h-656 lg:w-auto ml-auto "
+          src={Girl}
+          // className="h-420 w-full lg:h-656 lg:w-auto ml-auto "
           alt="hero-bg"
         />
+
         <div
-          className="w-full h-full absolute  top-0 left-0 flex justify-center items-center
-         lg:px-32 py-4 gap-4 flex-wrap drop-shadow-lg "
+          className="absolute  bottom-4 left-0 
+         lg:px-32 py-4 gap-4 italic text-[2rem] font-bold tracking-wide text-green-500 "
         >
-          {heroData.map((n) => {
+          Fantastic Delicious for you
+          {/* {heroData.map((n) => {
             return (
               <div
                 key={n.id}
-                className="w-40   p-4  bg-cardOverlay backdrop-blur-md 
+                className="w-28 h-28   p-4  bg-cardOverlay backdrop-blur-md 
              flex flex-col  items-center justify-center rounded-md "
               >
                 <motion.img
                   whileHover={{ scale: 1.2 }}
                   src={n.imageSrc}
-                  className="lg:w-24 w-20 -mt-10 "
+                  className="lg:w-24 w-10 -mt-10 "
                   alt="img"
                 />
                 <p className="text-base lg:text-xl font-semibold text-textColor">
@@ -66,7 +75,7 @@ const HomeConteiner = () => {
                 </p>
               </div>
             );
-          })}
+          })} */}
         </div>
       </div>
     </section>

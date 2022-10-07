@@ -50,7 +50,6 @@ const CartItem = ({ item, setFlag, flag }) => {
   useEffect(() => {
     items = cartItems;
   }, [qty, items]);
-
   return (
     <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">
       <img
