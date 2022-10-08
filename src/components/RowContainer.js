@@ -8,13 +8,11 @@ import { setCartItems } from "../redux/sliceCart";
 
 const RowContainer = ({ flag, data, scrollValue, foodItems }) => {
   const rowContainer = useRef();
-  console.log(data, "data");
-  console.log(foodItems);
-  const [items, setItems] = useState([]);
-
-  // const [{ cartItems }, dispatch] = useStateValue();
+  // console.log(data, "data");
+  // console.log(foodItems);
   const dispatch = useDispatch();
   const cartItems = useSelector((s) => s.Cart.cartItems);
+  const [items, setItems] = useState(cartItems);
 
   const addtocart = () => {
     dispatch(setCartItems(items));
