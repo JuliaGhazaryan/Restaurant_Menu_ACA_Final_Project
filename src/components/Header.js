@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/sliceUser";
-import { changeCartShow } from "../redux/sliceCart";
+import { changeCartShow, setCartItems } from "../redux/sliceCart";
 
 export const Header = () => {
   const firebaseAuth = getAuth(app);
@@ -43,6 +43,7 @@ export const Header = () => {
     localStorage.clear();
 
     dispatch(setUser(null));
+    dispatch(setCartItems([]));
   };
 
   const showCart = () => {
