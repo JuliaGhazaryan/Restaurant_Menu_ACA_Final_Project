@@ -72,10 +72,11 @@ export const Header = () => {
               <Link to={"/Menu"}>Menu</Link>
             </li>
             <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              About Us
+            <Link to={"/AboutUs"}>About Us</Link>
+              
             </li>
             <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Service
+            <Link to={"/Footer"}>Contacts</Link>
             </li>
           </motion.ul>
 

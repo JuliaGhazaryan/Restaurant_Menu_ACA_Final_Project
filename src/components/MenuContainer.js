@@ -7,6 +7,7 @@ import RowContainer from "./RowContainer";
 import CartContainer from "./CartContainer";
 import { useDispatch, useSelector } from "react-redux";
 
+
 const MenuContainer = () => {
   const [filter, setFilter] = useState("chicken");
   // const [{ cartShow }, dispatch] = useStateValue();
@@ -24,7 +25,7 @@ const MenuContainer = () => {
            before:rounded-lg before:content before:w-16 before:h-1 before:-bottom-2 before:left-0
            before:bg-green-700 transition-all ease-in-out duration-100 mr-auto"
         >
-          Our Hot Dishes
+          Explore Our Delicious Food
         </p>
         <div className="w-full flex items-center justify-start lg:justify-center gap-8 py-6 overflow-x-scroll scrollbar-none">
           {categories &&
@@ -72,7 +73,9 @@ const MenuContainer = () => {
         </div>
         {cartShow && <CartContainer />}
       </div>
+      
     </section>
+    
   );
 };
 

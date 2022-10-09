@@ -6,6 +6,8 @@ import RowContainer from "./RowContainer";
 
 import MenuContainer from "./MenuContainer";
 import { useDispatch, useSelector } from "react-redux";
+import { AboutUs } from "./AboutUs";
+import { Footer } from "./Footer";
 
 const MainContainer = () => {
   const [scrollValue, setScrollValue] = useState(0);
@@ -17,6 +19,8 @@ const MainContainer = () => {
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <HomeConteiner />
+      <AboutUs />
+      <MenuContainer />
       <section className="w-full my-6">
         <div className="w-full flex items-center justify-between">
           <p
@@ -24,7 +28,7 @@ const MainContainer = () => {
            before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-2 before:left-0
            before:bg-green-700 transition-all ease-in-out duration-100"
           >
-            Our fresh & healty fruits
+            Choose your drink
           </p>
           <div className="hidden md:flex gap-3 items-center">
             <motion.div
@@ -42,7 +46,10 @@ const MainContainer = () => {
               <MdChevronRight className="text-lg text-white" />
             </motion.div>
           </div>
+          
         </div>
+
+        
 
         <RowContainer
           scrollValue={scrollValue}
@@ -52,7 +59,8 @@ const MainContainer = () => {
         />
       </section>
       <section className="w-full my-6">
-        <MenuContainer />
+       
+        <Footer />
       </section>
     </div>
   );
