@@ -19,8 +19,8 @@ const HomeConteiner = () => {
           </span>
         </p>
         <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
-          You can see our resturant menu here.We want to see your smile and
-          happiness.You can order all delicous dishes,that you whant here.
+          You can see our resturant menu here. We want to see your smile and
+          happiness. You can order all delicious dishes, that you want here.
         </p>
         <button
           type="button"

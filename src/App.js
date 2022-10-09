@@ -11,6 +11,8 @@ import { getAllFoodItems } from "./utils/firebaseFunctions";
 import MenuContainer from "./components/MenuContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { setFoodItems } from "../src/redux/foodSlice";
+import { AboutUs } from "./components/AboutUs";
+import { Footer } from "./components/Footer";
 
 function App() {
   // const [{ foodItems }, dispatch] = useStateValue();
@@ -38,6 +40,8 @@ function App() {
             <Route path="/" element={<MainContainer />} />
             <Route path="/createItem" element={<CreateContainer />} />
             <Route path="/Menu" element={<MenuContainer />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/footer" element={<Footer />} />
           </Routes>
         </main>
       </div>
