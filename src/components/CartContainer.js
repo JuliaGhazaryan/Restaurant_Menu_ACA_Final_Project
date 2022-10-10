@@ -12,7 +12,7 @@ import { changeCartShow, setCartItems } from "../redux/sliceCart";
 const CartContainer = () => {
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
-  // console.log(cartItems, "cartItems");
+
   const user = useSelector((state) => state.User.user);
   const dispatch = useDispatch();
   const cartShow = useSelector((s) => s.Cart.cartShow);
@@ -24,13 +24,9 @@ const CartContainer = () => {
 
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
-      // console.log(item.qty, "qty");
-      // console.log(item.price, "price");
       return accumulator + item.qty * item.price;
     }, 0);
     setTot(totalPrice);
-
-    console.log(tot, "totlPr");
   }, [cartItems, tot, flag]);
 
   const clearCart = () => {

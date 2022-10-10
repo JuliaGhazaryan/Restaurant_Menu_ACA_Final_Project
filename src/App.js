@@ -15,13 +15,12 @@ import { AboutUs } from "./components/AboutUs";
 import { Footer } from "./components/Footer";
 
 function App() {
-  // const [{ foodItems }, dispatch] = useStateValue();
   const dispatch = useDispatch();
   const foodItems = useSelector((state) => state.Food.foodItems);
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
-      console.log(data);
+      // console.log(data);
       dispatch(setFoodItems(data));
     });
   };

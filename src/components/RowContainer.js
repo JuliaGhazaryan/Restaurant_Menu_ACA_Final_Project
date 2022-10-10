@@ -8,8 +8,7 @@ import { setCartItems } from "../redux/sliceCart";
 
 const RowContainer = ({ flag, data, scrollValue, foodItems }) => {
   const rowContainer = useRef();
-  // console.log(data, "data");
-  // console.log(foodItems);
+
   const dispatch = useDispatch();
   const cartItems = useSelector((s) => s.Cart.cartItems);
   const [items, setItems] = useState(cartItems);
