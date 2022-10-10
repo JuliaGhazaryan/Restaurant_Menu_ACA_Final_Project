@@ -32,7 +32,6 @@ export const Header = () => {
       dispatch(setUser(providerData[0]));
 
       localStorage.setItem("user", JSON.stringify(providerData[0]));
-      //console.log(response)
     } else {
       setIsMenu(!isMenu);
     }
@@ -72,11 +71,10 @@ export const Header = () => {
               <Link to={"/Menu"}>Menu</Link>
             </li>
             <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-            <Link to={"/AboutUs"}>About Us</Link>
-              
+              <Link to={"/AboutUs"}>About Us</Link>
             </li>
             <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-            <Link to={"/Footer"}>Contacts</Link>
+              <Link to={"/Footer"}>Contacts</Link>
             </li>
           </motion.ul>
 
@@ -187,25 +185,25 @@ export const Header = () => {
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer  hover:bg-slate-200 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
-                  Home
+                  <Link to={"/"}>Home</Link>
                 </li>
                 <li
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer  hover:bg-slate-200 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
-                  Menu
+                  <Link to={"/Menu"}>Menu</Link>
                 </li>
                 <li
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer  hover:bg-slate-200 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
-                  About Us
+                  <Link to={"/AboutUs"}>About Us</Link>
                 </li>
                 <li
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
-                  Service
+                  <Link to={"/Footer"}>Contacts</Link>
                 </li>
               </ul>
               <p

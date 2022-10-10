@@ -38,7 +38,7 @@ export const CreateContainer = () => {
   const uploadImage = (e) => {
     setIsLoading(true);
     const imageFile = e.target.files[0];
-    // console.log(imageFile)
+
     const storageRef = ref(storage, `Images/${uuidv4()}-${imageFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
@@ -67,12 +67,10 @@ export const CreateContainer = () => {
           setAlertStatus("success");
           setTimeout(() => {
             setFields(false);
-            // setIsLoading(false)
           }, 4000);
         });
       }
     );
-    // console.log(imageFile)
   };
 
   const deleteImage = () => {

@@ -3,6 +3,7 @@ import HomeConteiner from "./HomeConteiner";
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
+import CartContainer from "./CartContainer";
 
 import MenuContainer from "./MenuContainer";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,14 +14,13 @@ const MainContainer = () => {
   const [scrollValue, setScrollValue] = useState(0);
   const dispatch = useDispatch();
   const foodItems = useSelector((state) => state.Food.foodItems);
-
-  // useEffect(() => {}, [scrollValue, cartShow]);
+  const cartShow = useSelector((s) => s.Cart.cartShow);
 
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <HomeConteiner />
-      <AboutUs />
-      <MenuContainer />
+      {/* <AboutUs /> */}
+      {/* <MenuContainer /> */}
       <section className="w-full my-6">
         <div className="w-full flex items-center justify-between">
           <p
@@ -46,10 +46,7 @@ const MainContainer = () => {
               <MdChevronRight className="text-lg text-white" />
             </motion.div>
           </div>
-          
         </div>
-
-        
 
         <RowContainer
           scrollValue={scrollValue}
@@ -57,9 +54,9 @@ const MainContainer = () => {
           foodItems={foodItems}
           data={foodItems?.filter((n) => n.category === "drinks")}
         />
+        {cartShow && <CartContainer />}
       </section>
       <section className="w-full my-6">
-       
         <Footer />
       </section>
     </div>

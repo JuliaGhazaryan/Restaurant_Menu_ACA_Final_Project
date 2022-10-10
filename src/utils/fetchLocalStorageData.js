@@ -8,10 +8,10 @@ export const fetchUser = () => {
 };
 
 export const fetchCart = () => {
-  console.log(localStorage.getItem("cartItems"));
+  // console.log(localStorage.getItem("cartItems"));
   const cartInfo = localStorage.getItem("cartItems").length
     ? JSON.parse(localStorage.getItem("cartItems"))
     : localStorage.clear();
-  console.log("fetchChatr run", cartInfo);
+  // console.log("fetchChatr run", cartInfo);
   return cartInfo;
 };
