@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import Logo from "../img/logo.jpg";
+
 import Logo from "../img/logo2.jpg";
 
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
