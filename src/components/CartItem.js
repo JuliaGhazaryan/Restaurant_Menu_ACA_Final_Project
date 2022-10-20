@@ -9,37 +9,41 @@ const CartItem = ({ item, setFlag, flag }) => {
   const [qty, setQty] = useState(item.qty);
   const dispatch = useDispatch();
   const cartItems = useSelector((s) => s.Cart.cartItems);
-
   const cartDispatch = () => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
-
+  useEffect(() => {
+    cartDispatch();
+  }, [cartItems]);
   const updateQty = (action, id) => {
     if (action === "add") {
       setQty(qty + 1);
       dispatch(addCount(id));
+      console.log(cartItems);
 
       cartItems.map((item) => {
         if (item.id === id) {
           setFlag(flag + 1);
         }
       });
-      cartDispatch();
+      // cartDispatch();
     } else {
       // initial state value is one so you need to check if 1 then remove it
       if (qty === 1) {
         dispatch(filterCart(id));
+
         setFlag(flag + 1);
-        cartDispatch();
+        //cartDispatch();
       } else {
         setQty(qty - 1);
         dispatch(removeCount(id));
+        //cartDispatch();
         cartItems.map((item) => {
           if (item.id === id) {
             setFlag(flag + 1);
           }
         });
-        cartDispatch();
+        // cartDispatch();
       }
     }
   };

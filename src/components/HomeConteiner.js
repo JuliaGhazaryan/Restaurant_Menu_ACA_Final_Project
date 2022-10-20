@@ -35,7 +35,7 @@ const HomeConteiner = () => {
         <img src={Girl} alt="hero-bg" />
 
         <div
-          className="absolute  bottom-4 left-0 
+          className="absolute  bottom-4 left-0 flex flex-nowrap
          lg:px-32 py-4 gap-4 italic text-[1.5rem] font-bold tracking-wide text-green-500 "
         >
           Enjoy the pleasure of life
